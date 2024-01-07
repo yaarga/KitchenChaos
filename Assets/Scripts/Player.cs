@@ -11,22 +11,31 @@ using UnityEngine.UIElements.Experimental;
 
 public class Player : MonoBehaviour {
 
+    public static Player Instance { get; private set; }
+
+
+    public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+    public class OnSelectedCounterChangedEventArgs : EventArgs{
+        public ClearCounter selectedCounter;
+    
+    }
+
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
 
-    /* 
-       This part declares a private field with the name gameInput and the type GameInput.
-       The private keyword means that this field can only be accessed within the same class (Player),
-       and it is not visible from outside the class.
-       SerializeField: This attribute is a Unity-specific attribute.
-       It tells Unity to serialize the field, making it visible in the Unity Editor.
-       This allows you to set the value of gameInput through the Unity Editor interface.
-    */
 
     private bool isWalking;
     private Vector3 lastIntercatDir;
     private ClearCounter selectedCounter;
+
+    private void Awake(){
+        if (Instance != null){
+
+            Debug.Log("there is more than one player instance");
+        }
+        Instance = this;
+    }
     private void Start(){
         gameInput.onIntercatAction += GameInput_onIntercatAction;
     }
@@ -62,13 +71,16 @@ public class Player : MonoBehaviour {
            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter)) {
                 //Has ClearCounter
                 if (clearCounter != selectedCounter){
-                    selectedCounter = clearCounter;
+                    SetSelectedCounter(clearCounter);
+
+
+
                 }
             } else{
-                selectedCounter = null; 
+                SetSelectedCounter(null);
             }
         }else{
-            selectedCounter = null;
+            SetSelectedCounter(null);
         }
         Debug.Log(selectedCounter);
     }
@@ -124,5 +136,14 @@ public class Player : MonoBehaviour {
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
 
+    }
+    private void SetSelectedCounter (ClearCounter selectedCounter)
+    {
+        this.selectedCounter = selectedCounter;
+
+        OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
+        {
+            selectedCounter = selectedCounter
+        });
     }
 }
