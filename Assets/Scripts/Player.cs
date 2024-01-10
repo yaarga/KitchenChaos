@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
         }else{
             SetSelectedCounter(null);
         }
-        Debug.Log(selectedCounter);
+        
     }
     private void HandleMovmvent()
     {
@@ -134,7 +134,10 @@ public class Player : MonoBehaviour {
         isWalking = moveDir != Vector3.zero;
 
         float rotateSpeed = 10f;
-        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+        
+            transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+
+
 
     }
     private void SetSelectedCounter (ClearCounter selectedCounter)

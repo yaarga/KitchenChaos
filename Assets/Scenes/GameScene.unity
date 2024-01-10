@@ -343,6 +343,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8631781745335734280, guid: 9ccb4602ed4890848ab90583bc10df16, type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: fa6f41f675550814e8cb57c7c883db6c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -792,6 +796,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3294758251327466535, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
   m_PrefabInstance: {fileID: 1824765335}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1646769237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8631781745335734280, guid: 9ccb4602ed4890848ab90583bc10df16, type: 3}
+  m_PrefabInstance: {fileID: 397348339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddf864db8ec16c46952b0c991e56bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1824765335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1047,6 +1062,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8631781745335734280, guid: 9ccb4602ed4890848ab90583bc10df16, type: 3}
+      propertyPath: testing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631781745335734280, guid: 9ccb4602ed4890848ab90583bc10df16, type: 3}
+      propertyPath: secondClearCounter
+      value: 
+      objectReference: {fileID: 1646769237}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
