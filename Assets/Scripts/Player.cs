@@ -16,7 +16,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs{
-        public ClearCounter selectedCounter;
+        public BaseCounter selectedCounter;
     
     }
 
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
     private bool isWalking;
     private Vector3 lastIntercatDir;
-    private ClearCounter selectedCounter;
+    private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
 
     private void Awake(){
@@ -39,10 +39,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         Instance = this;
     }
     private void Start(){
-        gameInput.onIntercatAction += GameInput_onIntercatAction;
+        gameInput.OnIntercatAction += GameInput_OnIntercatAction;
     }
 
-    private void GameInput_onIntercatAction(object sender, EventArgs e){
+    private void GameInput_OnIntercatAction(object sender, System.EventArgs e){
         if (selectedCounter != null) {
             selectedCounter.Interact(this);
         }
@@ -70,10 +70,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
         float interactDistance = 2f;
         if (Physics.Raycast(transform.position, lastIntercatDir, out RaycastHit raycastHit, interactDistance,countersLayerMask)){
-           if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter)) {
+           if (raycastHit.transform.TryGetComponent(out BaseCounter baseCounter)) {
                 //Has ClearCounter
-                if (clearCounter != selectedCounter){
-                    SetSelectedCounter(clearCounter);
+                if (baseCounter != selectedCounter){
+                    SetSelectedCounter(baseCounter);
 
 
 
@@ -142,7 +142,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
 
     }
-    private void SetSelectedCounter (ClearCounter selectedCounter)
+    private void SetSelectedCounter(BaseCounter selectedCounter)
     {
         this.selectedCounter = selectedCounter;
 

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class GameInput : MonoBehaviour {
-    public event EventHandler onIntercatAction;
+    public event EventHandler OnIntercatAction;
     private PlayerInputActions playerInputActions;
     private void Awake(){
     
@@ -17,9 +17,9 @@ public class GameInput : MonoBehaviour {
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (onIntercatAction != null)
+        if (OnIntercatAction != null)
         {
-            onIntercatAction(this, EventArgs.Empty);
+            OnIntercatAction(this, EventArgs.Empty);
         }
     }
 
