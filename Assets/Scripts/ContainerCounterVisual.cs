@@ -17,7 +17,7 @@ public class ContainerCounterVisual : MonoBehaviour{
     {
         
         containerCounter.OnPlayerGrabbedObject += ContainerCounter_OnPlayerGrabbedObject;
-;
+
     }
 
     private void ContainerCounter_OnPlayerGrabbedObject(object SENDER, System.EventArgs e)
