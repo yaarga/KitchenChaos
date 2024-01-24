@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingCounterVisual : MonoBehaviour{
+public class CuttingCounterVisual : MonoBehaviour {
 
     private const string CUT = "Cut";
     [SerializeField] private CuttingCounter cuttingCounter;
