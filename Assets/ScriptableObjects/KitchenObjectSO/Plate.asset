@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b234971da2dd14aa8444dd8821e349, type: 3}
+  m_Name: Plate
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7456713662492198465, guid: a75a9b601e611cd42ba53932e97f8375, type: 3}
+  sprite: {fileID: 21300000, guid: 3928afb5321bb3d489bbd4ac581b29a2, type: 3}
+  objectName: Plate

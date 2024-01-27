@@ -36,6 +36,19 @@ public class KitchenObject : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    public bool TryGetPlate(out PlateKitchenObject plateKitchenObject){
+     //The TryGetPlate function you provided is using an out parameter, which is a C# feature used to return multiple values from a method
+        if (this is PlateKitchenObject){
+            plateKitchenObject = this as PlateKitchenObject;
+            return true;
+        }
+        else{
+            plateKitchenObject = null;
+            return false;
+        }
+
+    
+    }
 
     public static KitchenObject SpawnKitchenObject(KitchenObjectSO kithcenObjectSO, IKitchenObjectParent kitchenObjectParent) {
         Transform kitchenObjectTransform = Instantiate(kithcenObjectSO.prefab); 

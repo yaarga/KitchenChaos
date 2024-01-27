@@ -11,16 +11,12 @@ public class CuttingCounter : BaseCounter,IHasProgress {
 
     [SerializeField] private CuttingRecpieSO[] cuttingRecpieSOArray;
     private int cuttingProgress;
-    public override void Interact(Player player)
-    {
-        if (!HasKitchenObject())
-        {
+    public override void Interact(Player player){
+        if (!HasKitchenObject()){
             //there is no kitchen obj
-            if (player.HasKitchenObject())
-            {
-                //player is carring smthing
-                if (HasRecpieWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
-                {
+            if (player.HasKitchenObject()){
+                //player is carring something
+                if (HasRecpieWithInput(player.GetKitchenObject().GetKitchenObjectSO())){
                     //Drop it
                     player.GetKitchenObject().SetKitchenObjectParent(this);
                     cuttingProgress = 0;
@@ -32,20 +28,25 @@ public class CuttingCounter : BaseCounter,IHasProgress {
                     });
                 }
             }
-            else
-            {
+            else{
                 //player not carrying anything
             }
         }
-        else
-        {
+        else{
             //There is KitchenObject here
-            if (player.HasKitchenObject())
-            {
-                //player is carring somthing 
+            if (player.HasKitchenObject()){
+                //player is carring somtehing 
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    //player is holding a plate
+                    if (plateKitchenObject.TryAddIngrediant(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+                    }
+
+                }
             }
-            else
-            {
+            else{
                 //player not carrying anything
                 GetKitchenObject().SetKitchenObjectParent(player);
             }
