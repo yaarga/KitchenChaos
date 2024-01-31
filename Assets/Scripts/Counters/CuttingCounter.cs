@@ -9,7 +9,7 @@ public class CuttingCounter : BaseCounter,IHasProgress {
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler OnCut;
 
-    [SerializeField] private CuttingRecpieSO[] cuttingRecpieSOArray;
+    [SerializeField] private CuttingRecipeSO[] cuttingRecpieSOArray;
     private int cuttingProgress;
     public override void Interact(Player player){
         if (!HasKitchenObject()){
@@ -21,7 +21,7 @@ public class CuttingCounter : BaseCounter,IHasProgress {
                     player.GetKitchenObject().SetKitchenObjectParent(this);
                     cuttingProgress = 0;
 
-                    CuttingRecpieSO cuttingRecpieSO = GetCuttingRecpieSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                    CuttingRecipeSO cuttingRecpieSO = GetCuttingRecpieSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
                     OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
                         progressNormalized = (float)cuttingProgress / cuttingRecpieSO.cuttingProgressMax
@@ -59,7 +59,7 @@ public class CuttingCounter : BaseCounter,IHasProgress {
         //There is a kitchenObject here and it can be cut
             cuttingProgress++;
             OnCut?.Invoke(this, EventArgs.Empty);
-            CuttingRecpieSO cuttingRecpieSO = GetCuttingRecpieSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+            CuttingRecipeSO cuttingRecpieSO = GetCuttingRecpieSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs{
                 progressNormalized = (float)cuttingProgress / cuttingRecpieSO.cuttingProgressMax
@@ -73,12 +73,12 @@ public class CuttingCounter : BaseCounter,IHasProgress {
         }
     }
     private bool HasRecpieWithInput(KitchenObjectSO inputKitchenObjectSO){
-        CuttingRecpieSO cuttingRecpieSO = GetCuttingRecpieSOWithInput(inputKitchenObjectSO);
+        CuttingRecipeSO cuttingRecpieSO = GetCuttingRecpieSOWithInput(inputKitchenObjectSO);
         return cuttingRecpieSO != null;
 
     }
     private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO){
-        CuttingRecpieSO cuttingRecpieSO = GetCuttingRecpieSOWithInput(inputKitchenObjectSO);
+        CuttingRecipeSO cuttingRecpieSO = GetCuttingRecpieSOWithInput(inputKitchenObjectSO);
         if (cuttingRecpieSO != null){
            return cuttingRecpieSO.output;
         }
@@ -87,8 +87,8 @@ public class CuttingCounter : BaseCounter,IHasProgress {
         }
         
     }
-    private CuttingRecpieSO GetCuttingRecpieSOWithInput(KitchenObjectSO inputKitchenObjectSO){
-        foreach (CuttingRecpieSO cuttingRecpieSO in cuttingRecpieSOArray){
+    private CuttingRecipeSO GetCuttingRecpieSOWithInput(KitchenObjectSO inputKitchenObjectSO){
+        foreach (CuttingRecipeSO cuttingRecpieSO in cuttingRecpieSOArray){
             if (cuttingRecpieSO.input == inputKitchenObjectSO){
                 return cuttingRecpieSO;
             }

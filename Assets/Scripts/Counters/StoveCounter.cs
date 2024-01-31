@@ -18,13 +18,13 @@ public class StoveCounter : BaseCounter,IHasProgress {
         Burned,
     }
 
-    [SerializeField] private FryingRecpieSO[] fryingRecpieSOArray;
-    [SerializeField] private BurningRecpieSO[] burningRecpieSOArray;
+    [SerializeField] private FryingRecipeSO[] fryingRecpieSOArray;
+    [SerializeField] private BurningRecipeSO[] burningRecpieSOArray;
 
     private State state;
     private float fryingTimer;
-    private FryingRecpieSO fryingRecpieSO;
-    private BurningRecpieSO burningRecpieSO;
+    private FryingRecipeSO fryingRecpieSO;
+    private BurningRecipeSO burningRecpieSO;
 
     private float burningTimer;
     private void Start(){
@@ -172,12 +172,12 @@ public class StoveCounter : BaseCounter,IHasProgress {
 
     private bool HasRecpieWithInput(KitchenObjectSO inputKitchenObjectSO)
     {
-        FryingRecpieSO fryingRecpieSO = GetFryingRecpieSOWithInput(inputKitchenObjectSO);
+        FryingRecipeSO fryingRecpieSO = GetFryingRecpieSOWithInput(inputKitchenObjectSO);
         return fryingRecpieSO != null;
 
     }
     private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO){
-        FryingRecpieSO fryingRecpieSO = GetFryingRecpieSOWithInput(inputKitchenObjectSO);
+        FryingRecipeSO fryingRecpieSO = GetFryingRecpieSOWithInput(inputKitchenObjectSO);
         if (fryingRecpieSO != null){       
             return fryingRecpieSO.output;
         }
@@ -186,16 +186,16 @@ public class StoveCounter : BaseCounter,IHasProgress {
         }
 
     }
-    private FryingRecpieSO GetFryingRecpieSOWithInput(KitchenObjectSO inputKitchenObjectSO){
-        foreach (FryingRecpieSO fryingRecpieSO in fryingRecpieSOArray){
+    private FryingRecipeSO GetFryingRecpieSOWithInput(KitchenObjectSO inputKitchenObjectSO){
+        foreach (FryingRecipeSO fryingRecpieSO in fryingRecpieSOArray){
             if (fryingRecpieSO.input == inputKitchenObjectSO){
                 return fryingRecpieSO;
             }
         }
         return null;
     }
-     private BurningRecpieSO GetBurningRecpieSOWithInput(KitchenObjectSO inputKitchenObjectSO){
-        foreach (BurningRecpieSO burningRecpieSO in burningRecpieSOArray){
+     private BurningRecipeSO GetBurningRecpieSOWithInput(KitchenObjectSO inputKitchenObjectSO){
+        foreach (BurningRecipeSO burningRecpieSO in burningRecpieSOArray){
             if (burningRecpieSO.input == inputKitchenObjectSO){
                 return burningRecpieSO;
             }
