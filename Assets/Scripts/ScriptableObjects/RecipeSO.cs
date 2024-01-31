@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecpieSO : MonoBehaviour
+[CreateAssetMenu()]
+public class RecipeSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<KitchenObjectSO> kitchenObjectSOList;
+    public string recipeName;
+ 
 }
