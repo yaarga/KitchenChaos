@@ -19,7 +19,7 @@ public class PlateKitchenObject : KitchenObject {
     }
     public bool TryAddIngrediant(KitchenObjectSO kitchenObjectSO){
         if (!validKitchenObjectSOList.Contains(kitchenObjectSO)) {
-            //Not a valid ingrediant - like a whoule tomato or uncooked meat
+            //Not a valid ingrediant - like a whole tomato or uncooked meat
             return false;
         }
         if (kitchenObjectSOList.Contains(kitchenObjectSO)){
