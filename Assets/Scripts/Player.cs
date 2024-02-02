@@ -44,14 +44,15 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
     }
 
-    private void GameInput_OnIntercatAlternateAction(object sender, System.EventArgs e)
-    {
+    private void GameInput_OnIntercatAlternateAction(object sender, System.EventArgs e){
+        if (!KitchenGameManager.Instance.IsGamePlaying()) return;
         if (selectedCounter != null){
             selectedCounter.InteractAlternate(this);
         }
 
     }
     private void GameInput_OnIntercatAction(object sender, System.EventArgs e){
+        if (!KitchenGameManager.Instance.IsGamePlaying()) return;
         if (selectedCounter != null) {
             selectedCounter.Interact(this);
         }
