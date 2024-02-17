@@ -13,9 +13,11 @@ public class GameInput : MonoBehaviour {
 
     public static GameInput Instance { get; private set; }
 
-    public event EventHandler OnIntercatAction;
+    public event EventHandler OnInteractAction;
     public event EventHandler OnIntercatAlternateAction;
     public event EventHandler OnPauseAction;
+    public event EventHandler OnBindingRebind;
+
     public enum Binding {
         Move_Up,
         Move_Down,
@@ -65,9 +67,9 @@ public class GameInput : MonoBehaviour {
     }
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (OnIntercatAction != null)
+        if (OnInteractAction != null)
         {
-            OnIntercatAction(this, EventArgs.Empty);
+            OnInteractAction(this, EventArgs.Empty);
         }
     }
 
@@ -160,6 +162,8 @@ public class GameInput : MonoBehaviour {
                 playerInputActions.SaveBindingOverridesAsJson();
                 PlayerPrefs.SetString(PLAYER_PREFS_BINDINGS, playerInputActions.SaveBindingOverridesAsJson());
                 PlayerPrefs.Save();
+
+                OnBindingRebind?.Invoke(this, EventArgs.Empty);
 
             })
             .Start();

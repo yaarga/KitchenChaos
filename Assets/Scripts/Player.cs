@@ -39,7 +39,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         Instance = this;
     }
     private void Start(){
-        gameInput.OnIntercatAction += GameInput_OnIntercatAction;
+        gameInput.OnInteractAction += GameInput_OnIntercatAction;
         gameInput.OnIntercatAlternateAction += GameInput_OnIntercatAlternateAction;
 
     }
