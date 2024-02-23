@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 79068574}
   - component: {fileID: 79068573}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyGamepadInteractText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 84576413}
   - component: {fileID: 84576412}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyGamepadPauseText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 151613718}
   - component: {fileID: 151613717}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyInteractAlternateText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1795,7 +1795,7 @@ GameObject:
   - component: {fileID: 293749524}
   - component: {fileID: 293749523}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyMoveDownText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5188,7 +5188,7 @@ GameObject:
   - component: {fileID: 656010753}
   - component: {fileID: 656010752}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyInteractText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7357,7 +7357,7 @@ GameObject:
   - component: {fileID: 994880387}
   - component: {fileID: 994880386}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyGamepadMoveText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7918,7 +7918,7 @@ GameObject:
   - component: {fileID: 1119251279}
   - component: {fileID: 1119251278}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyMoveLeftText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8320,6 +8320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1174358923}
+  - component: {fileID: 1174358924}
   m_Layer: 5
   m_Name: TutorialUI
   m_TagString: Untagged
@@ -8360,6 +8361,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1174358924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174358922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd766c3ba9be96146857c79e25822cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyMoveUpText: {fileID: 2050870423}
+  keyMoveDownText: {fileID: 293749523}
+  keyMoveLeftText: {fileID: 1119251278}
+  keyMoveRightText: {fileID: 1282685021}
+  keyMoveInteractText: {fileID: 656010752}
+  keyMoveInteractAlternateText: {fileID: 151613717}
+  keyMovePauseText: {fileID: 1730430333}
+  keyMoveGamepadInteractText: {fileID: 79068573}
+  keyMoveGamepadInteractAlternateText: {fileID: 1501316054}
+  keyMoveGamepadPauseText: {fileID: 84576412}
 --- !u!1 &1174950895
 GameObject:
   m_ObjectHideFlags: 0
@@ -9262,7 +9285,7 @@ GameObject:
   - component: {fileID: 1282685022}
   - component: {fileID: 1282685021}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyMoveRightText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10650,7 +10673,7 @@ GameObject:
   - component: {fileID: 1501316055}
   - component: {fileID: 1501316054}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyGamepadInteractAlternateText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12550,7 +12573,7 @@ GameObject:
   - component: {fileID: 1730430334}
   - component: {fileID: 1730430333}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyPauseText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14804,7 +14827,7 @@ GameObject:
   - component: {fileID: 2050870424}
   - component: {fileID: 2050870423}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: KeyMoveUpText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
