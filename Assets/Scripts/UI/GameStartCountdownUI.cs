@@ -8,6 +8,7 @@ public class GameStartCountdownUI : MonoBehaviour{
     private const string NUMBER_POPUP = "NumberPopup";
 
     [SerializeField] private TextMeshProUGUI CountdownText;
+
     private Animator animator;
     private int previousCountdownNumber;
 
@@ -18,6 +19,7 @@ public class GameStartCountdownUI : MonoBehaviour{
 
     private void Start(){
         KitchenGameManager.Instance.OnStateChanged += KitchenGameMagnager_OnStateChanged;
+        Hide();
     }
 
     private void KitchenGameMagnager_OnStateChanged(object sender, System.EventArgs e){    
